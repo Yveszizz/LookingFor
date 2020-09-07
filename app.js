@@ -3,7 +3,7 @@ const ImageSearchBtn = document.querySelector(".google-images-link");
 const menuCarre = document.querySelector(".google-menu-carres")
 const connexionLink = document.querySelector(".google-login-link")
 
-const searchBar = document.querySelector(".search-bar-input-google");
+const searchBar = document.querySelector(".search-bar-input-google1");
 const chanceBtn = document.querySelector("#jai_de_la_chance");
 const googleSearchBtn = document.querySelector("#recherche_google");
 
@@ -12,15 +12,16 @@ export const searchUrl = 'https://en.wikipedia.org/w/api.php?action=opensearch&f
 export const proxy = 'https://cors-anywhere.herokuapp.com/';
 
 
-addEventListener("keyup", (e) => {
+searchBar.addEventListener("keyup", (e) => {
     if (e.keyCode === 13){
         e.preventDefault();
-        goWiki();
-        window.open("search.html", "_self");
+        //goWiki();
+        //window.open("search.html", "_self");
+        console.log('c est bon');
         }  
 })
 
- export function goWiki(){
+  function goWiki(){
     let term = searchBar.value;
     let url = proxy + searchUrl + term;
     

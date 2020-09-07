@@ -1,7 +1,7 @@
-import {goWiki, proxy, searchUrl} from '/app.js';
+import {proxy, searchUrl} from '/app.js';
 
 
-const searchBar = document.querySelector(".search-bar-input-google");
+const searchBar = document.querySelector(".search-bar-input-google2");
 
 const menuCarre = document.querySelector(".google-menu-carres");
 const connexionLink = document.querySelector(".google-login-link");
@@ -12,11 +12,11 @@ const connexionLink = document.querySelector(".google-login-link");
 
 //searchBar.value = derniereRecherche;
 
-addEventListener("keyup", (e) => {
+searchBar.addEventListener("keyup", (e) => {
     if (e.keyCode === 13){
         e.preventDefault();
         //goWiki();
-        console.log("c'est bon")
-        return true;
+        console.log("c'est bon1");
         }  
+   
 })
