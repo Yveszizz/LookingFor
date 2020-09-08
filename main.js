@@ -1,22 +1,43 @@
-import {proxy, searchUrl} from '/app.js';
+import {proxy, searchUrl, goWiki} from './searcher.js';
 
+const searchList = document.querySelector(".recherche-trouve-list");
 
 const searchBar = document.querySelector(".search-bar-input-google2");
 
 const menuCarre = document.querySelector(".google-menu-carres");
 const connexionLink = document.querySelector(".google-login-link");
 
-//let derniereRecherche = localStorage.length;
+function lookingFor(nomDeLaRecherche) {
+    console.log(nomDeLaRecherche);
+    searchBar.value = nomDeLaRecherche;
+    goWiki(searchBar);
+}
+// Le nom de la recherche a faire est écrit dans le stockage, on la chercher
+lookingFor(localStorage.getItem('Recherche'));
 
-//console.log(localStorage[2][3])
-
-//searchBar.value = derniereRecherche;
 
 searchBar.addEventListener("keyup", (e) => {
     if (e.keyCode === 13){
         e.preventDefault();
-        //goWiki();
-        console.log("c'est bon1");
-        }  
-   
+        //goWiki(searchBar);
+        let data = goWiki(searchBar);
+        console.log(data); 
+        //console.log(searchBar.value);
+        displaySearch();
+        }
 })
+
+
+function displaySearch (event,titre,lien) {
+    const searchTitle = document.createElement("li")
+    searchTitle.innerText = "titre";
+    searchTitle.classList.add("search-list-element");
+    searchList.appendChild(searchTitle);
+    
+}
+
+displaySearch();
+
+
+
+

@@ -56,7 +56,10 @@ a{
     text-decoration: none;
     color: dimgray;
 }
-
+/* Bloc Page */
+.search-container-list{
+    border: 1px solid black;
+}
 /* Footer */
 footer{
     position:fixed;
