@@ -9,7 +9,7 @@ const connexionLink = document.querySelector(".google-login-link");
 
 function lookingFor(nomDeLaRecherche) {
     console.log(nomDeLaRecherche);
-    searchBar.value = nomDeLaRecherche;
+    searchBar.value = nomDeLaRecherche; 
     goWiki(searchBar);
 }
 // Le nom de la recherche a faire est écrit dans le stockage, on la chercher
@@ -19,25 +19,18 @@ lookingFor(localStorage.getItem('Recherche'));
 searchBar.addEventListener("keyup", (e) => {
     if (e.keyCode === 13){
         e.preventDefault();
-        //goWiki(searchBar);
-        let data = goWiki(searchBar);
-        console.log(data); 
-        //console.log(searchBar.value);
-        displaySearch();
-        }
+        goWiki(searchBar);
+        searchList.innerHTML = "";
+    }
 })
 
 
-function displaySearch (event,titre,lien) {
-    const searchTitle = document.createElement("li")
-    searchTitle.innerText = "titre";
+export function displaySearch (titre,lien) {  
+    const searchTitle = document.createElement("li");
+    searchTitle.innerHTML = ` ${titre} <br/> ${lien} <br/><br/>` ;
     searchTitle.classList.add("search-list-element");
-    searchList.appendChild(searchTitle);
-    
+    searchList.appendChild(searchTitle); 
 }
-
-displaySearch();
-
 
 
 

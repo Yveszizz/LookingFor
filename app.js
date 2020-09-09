@@ -1,4 +1,4 @@
-import {searchUrl, proxy, goWiki} from './searcher.js';
+//import {searchUrl, proxy, goWiki} from './searcher.js';
 
 const gmailLink = document.querySelector(".gmail-link");
 const ImageSearchBtn = document.querySelector(".google-images-link");
@@ -17,6 +17,6 @@ searchBar.addEventListener("keyup", (e) => {
         window.open("main.html", "_self");
         console.log('c est bon');
         //return true;
-        }  
+        }   
 })
 

@@ -1,25 +1,27 @@
+import {displaySearch} from './main.js';
+ 
 export const searchUrl = 'https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search=';
 
 export const proxy = 'https://cors-anywhere.herokuapp.com/';
 
 
+
 export function goWiki(bar){
     let term = bar.value;
     let url = proxy + searchUrl + term;
-    let donnees;
+    let titre, lien;
 
-    let fetchs = fetch(url)
+    fetch(url)
     .then(response => {
         return response.json();
     })
-    
     .then(data => {
-        console.log(data);
-        console.log(fetchs)
-        //console.log(data[1][0]);
-        //console.log(data[3][0]);
+        for (let i=0; i<5;i++){
+            titre = data[1][i];
+            lien = data[3][i];
+            displaySearch(titre,lien); 
+        }
+        console.log(data);   
         return data
     })
-    
-    return fetchs
-}
+} 
